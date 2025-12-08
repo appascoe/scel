@@ -255,12 +255,12 @@
     (while continue
       (setq res (re-search-forward regexp limit t))
       (if (or (null res) (null sclang-class-list))
-	   (setq continue nil)
-	(let ((word (current-word 'strict 'really-word)))
-	  (if (null word)
-	      (setq res nil continue nil)
-	    (when (cl-position word sclang-class-list :test 'equal)
-	      (setq continue nil))))))
+        (setq continue nil)
+        (let ((word (current-word 'strict 'really-word)))
+          (if (null word)
+            (setq res nil continue nil)
+            (when (cl-position word sclang-class-list :test 'equal)
+              (setq continue nil))))))
     res))
 
 (defun sclang-set-font-lock-keywords ()
